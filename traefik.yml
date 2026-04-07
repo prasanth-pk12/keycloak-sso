@@ -1,0 +1,23 @@
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+api:
+  dashboard: true
+  insecure: false
+
+providers:
+  docker:
+    exposedByDefault: false
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: prasanth.perumalr@gmail.com
+      storage: /acme.json
+      # Using production Let's Encrypt (removed staging caServer)
+      dnsChallenge:
+        provider: cloudflare
+        delayBeforeCheck: 10
